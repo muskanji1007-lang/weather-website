@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#login-page{
+    min-height: 100vh;
+    background-image:  linear-gradient(rgba(3, 18, 35, 0.45), rgba(3, 18, 35, 0.45)),
+        url("ChatGPT\ Image\ Sep\ 4\,\ 2026\,\ 11_56_30\ AM.png");
+         background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#signup-page{
+    min-height: 100vh;
+    background-image:  linear-gradient(rgba(3, 18, 35, 0.45), rgba(3, 18, 35, 0.45)),
+        url("login\ page\ image.png");
+          background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#dashboard-page{
+     min-height: 100vh;
+    background-image: linear-gradient(rgba(3, 18, 35, 0.45), rgba(3, 18, 35, 0.45)),
+    url("dashborad2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+#login-page,
+#signup-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+#signup-page,
+#dashboard-page {
+    display: none;
+}
+.login-card,
+.signup-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    font-weight: 700;
+    color: #ffffff;
+
+    background:  rgba(5, 25, 45, 0.72);;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+.login-card h1,
+.signup-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 32px;
+}
+.login-card > p:first-of-type,
+.signup-card > p:first-of-type {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #38bdf8;
+}
+.login-card form,
+.signup-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.login-card input,
+.signup-card input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    outline: none;
+}
+.login-card input::placeholder,
+.signup-card input::placeholder {
+    color: #dbeafe;
+}
+.login-card button,
+.signup-card button {
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-card button:hover,
+.signup-card button:hover {
+    background: #38bdf8;
+}
+#show-signup,
+#show-login {
+    padding: 0;
+    background: none;
+    color: #38bdf8;
+    border: none;
+    font-size: inherit;
+}
+#show-signup:hover,
+#show-login:hover {
+    text-decoration: underline;
+}
+.login-card h2,
+.signup-card h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-card h2 + p,
+.signup-card h2 + p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #38bdf8;
+}
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#forgot-password {
+    color: #38bdf8;
+    text-decoration: none;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.2);
+}
+.google-btn {
+    width: 100%;
+    background: transparent ;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.google-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.signup-card {
+    max-width: 420px;
+}
+
+#dashboard-page {
+    min-height: 100vh;
+    padding: 30px;
+}
+
+#dashboard-page header {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#dashboard-page header h1 {
+    font-size: 32px;
+}
+
+#logout-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    background: #38bdf8;
+}
+
+#dashboard-page main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#city-input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    outline: none;
+}
+
+#city-input::placeholder {
+    color: #dbeafe;
+}
+
+#search-btn {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background: #38bdf8;
+}
+
+#weather-result {
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    background: rgba(3, 18, 35, 0.85);
+    text-align: center;
+    color: #ffffff;
+}
+
+#weather-result h2 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+#forecast {
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    background: rgba(3, 18, 35, 0.88);
+    color: #ffffff;
+}
+
+#forecast h2 {
+    margin-bottom: 20px;
+     font-weight: 700;
+    color: #ffffff;
+}
+
+#forecast-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+      /* TABLET */
+@media (max-width: 768px) {
+
+    #dashboard-page {
+        padding: 20px;
+    }
+
+    #dashboard-page header {
+        margin-bottom: 20px;
+    }
+
+    #dashboard-page header h1 {
+        font-size: 26px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    #forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+   /* MOBILE */
+@media (max-width: 480px) {
+
+    #login-page,
+    #signup-page {
+        padding: 15px;
+    }
+
+    .login-card,
+    .signup-card {
+        padding: 25px 20px;
+    }
+
+    #dashboard-page {
+        padding: 15px;
+    }
+
+    #dashboard-page header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    #dashboard-page header h1 {
+        text-align: center;
+    }
+
+    #logout-btn {
+        width: 100%;
+    }
+
+    #weather-result,
+    #forecast {
+        padding: 20px;
+    }
+
+    #forecast-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.forecast-card {
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.forecast-card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.forecast-card img {
+    width: 60px;
+    height: 60px;
+    margin: 8px 0;
+}
+
+.forecast-card p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.forecast-card p:nth-of-type(2),
+.forecast-card p:nth-of-type(3) {
+    font-weight: 600;
+}
+.current-day {
+    border: 2px solid #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+}
+#dashboard-page footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #ffffff;
+    font-size: 18px;
+
+#dashboard-page footer p {
+    letter-spacing: 0.5px;
+}-weight: 700;
+}
+.google-icon {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    background: conic-gradient(
+        from -45deg,
+        #4285F4 0deg 90deg,
+        #34A853 90deg 180deg,
+        #FBBC05 180deg 270deg,
+        #EA4335 270deg 360deg
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.google-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #202124;
+}
+.cursor {
+    width: 50px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgb(3, 3, 3);
+    box-shadow: 2px 5px white;
+}

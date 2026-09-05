@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skyora - Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor"></div>
+    
+    <section id="login-page">
+        <div class="login-card">
+
+            <h1>SKYORA</h1>
+            <p>Your Weather Companion</p>
+
+            <h2>Welcome Back!</h2>
+            <p>Login to continue</p>
+
+            <form id="login-form">
+
+                <label for="login-email">Email</label>
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Enter your email" >
+
+                <label for="login-password">Password</label>
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Enter your password">
+                    <div class="login-options">
+
+    <label>
+        <input type="checkbox" id="remember-me">
+        Remember me
+    </label>
+    <a href="#" id="forgot-password">
+        Forgot Password?
+    </a>
+</div>
+
+                <button type="submit">Login</button>
+                <div class="divider">
+    <span>or</span>
+</div>
+<button type="button" class="google-btn">
+    <span class="google-icon">G</span>
+    Login with Google
+</button>
+            </form> 
+
+            <p>
+                Don't have an account?
+                <button type="button" id="show-signup">
+                    Sign Up
+                </button>
+            </p>
+        </div>
+    </section>
+
+    <section id="signup-page">
+        <div class="signup-card">
+
+            <h1>SKYORA</h1>
+            <p>Your Weather Companion</p>
+
+            <h2>Create Account</h2>
+            <p>Join us and start your weather journey</p>
+
+            <form id="signup-form">
+
+                <label for="signup-name">Full Name</label>
+                <input
+                    type="text"
+                    id="signup-name"
+                    placeholder="Enter your name">
+
+                <label for="signup-email">Email</label>
+                <input
+                    type="email"
+                    id="signup-email"
+                    placeholder="Enter your email">
+
+                <label for="signup-password">Password</label>
+                <input
+                    type="password"
+                    id="signup-password"
+                    placeholder="Create a password" >
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>
+                Already have an account?
+                <button type="button" id="show-login">
+                    Login
+                </button>
+            </p>
+        </div>
+    </section>
+
+    <section id="dashboard-page">
+        <header>
+            <h1>SKYORA</h1>
+
+            <button id="logout-btn">
+                Logout
+            </button>
+        </header>
+        <main>
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Search for a city " >
+
+                <button id="search-btn">
+                    Search
+                </button>
+            </div>
+            <div id="weather-result">
+
+                <h2>Search for a city</h2>
+                <p>Enter a city name to see the weather.</p>
+
+            </div>
+            <div id="forecast">
+
+                <h2>7-Day Forecast</h2>
+
+                <div id="forecast-container">
+                </div>
+            </div>
+        </main>
+        <footer>
+    <p>© 2026 SKYORA | Created by Muskan Gupta</p>
+</footer>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
