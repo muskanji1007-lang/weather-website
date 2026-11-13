@@ -77,6 +77,38 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-900);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--bg-dark-900);
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan-400);
+}
+
+/* Atmospheric Day & Night Background Filters */
+#dashboard-page.mode-day {
+    background-image: linear-gradient(rgba(3, 18, 38, 0.65), rgba(6, 26, 52, 0.72)),
+                      url("dashborad2.png");
+}
+
+#dashboard-page.mode-night {
+    background-image: linear-gradient(rgba(2, 6, 15, 0.84), rgba(4, 12, 26, 0.88)),
+                      url("dashborad2.png");
+}
+
 /* ==========================================================================
    INTERACTIVE 3D CUSTOM CURSOR
    ========================================================================== */

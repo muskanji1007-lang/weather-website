@@ -534,6 +534,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const loc = weatherData.location;
         const cur = weatherData.current;
 
+        // Adaptive Day / Night atmospheric backdrop
+        if (dashboardPage) {
+            if (cur.is_day === 1) {
+                dashboardPage.classList.remove("mode-night");
+                dashboardPage.classList.add("mode-day");
+            } else {
+                dashboardPage.classList.remove("mode-day");
+                dashboardPage.classList.add("mode-night");
+            }
+        }
+
         const tempDisplay = formatTemp(cur.temp_c, cur.temp_f);
         const feelsDisplay = formatTemp(cur.feelslike_c, cur.feelslike_f);
         const iconSrc = cur.condition.icon.startsWith("//") ? `https:${cur.condition.icon}` : cur.condition.icon;
