@@ -630,7 +630,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Feels Like</span>
-                    <div class="card-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                    <div class="card-icon" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;"><i class="fa-solid fa-temperature-half"></i></div>
                 </div>
                 <div class="card-value">${feelsDisplay}</div>
                 <div class="card-subtext">
@@ -642,11 +642,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Humidity</span>
-                    <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="card-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-droplet"></i></div>
                 </div>
                 <div class="card-value">${cur.humidity}%</div>
                 <div class="mini-bar">
-                    <div class="mini-bar-fill" style="width: ${Math.min(cur.humidity, 100)}%;"></div>
+                    <div class="mini-bar-fill" style="width: ${Math.min(cur.humidity, 100)}%; background: linear-gradient(90deg, #00f2fe, #3b82f6);"></div>
                 </div>
                 <div class="card-subtext">
                     <span class="status-pill status-normal">${humidityRating}</span>
@@ -657,7 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Wind Velocity</span>
-                    <div class="card-icon">
+                    <div class="card-icon" style="background: rgba(96, 165, 250, 0.15); color: #60a5fa;">
                         <i class="fa-solid fa-location-arrow" style="transform: rotate(${windDeg}deg); transition: transform 0.5s ease;"></i>
                     </div>
                 </div>
@@ -671,11 +671,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">UV Index</span>
-                    <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
+                    <div class="card-icon" style="background: rgba(251, 113, 133, 0.15); color: #fb7185;"><i class="fa-solid fa-sun"></i></div>
                 </div>
                 <div class="card-value">${cur.uv} <small style="font-size: 0.95rem; color: var(--text-muted);">/ 12</small></div>
                 <div class="mini-bar">
-                    <div class="mini-bar-fill" style="width: ${Math.min((cur.uv / 12) * 100, 100)}%; background: ${cur.uv > 6 ? '#f87171' : '#38bdf8'};"></div>
+                    <div class="mini-bar-fill" style="width: ${Math.min((cur.uv / 12) * 100, 100)}%; background: ${cur.uv > 6 ? '#fb7185' : 'linear-gradient(90deg, #38bdf8, #818cf8)'};"></div>
                 </div>
                 <div class="card-subtext">
                     <span class="status-pill ${uvClass}">${uvLevel} UV</span>
@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Air Pressure</span>
-                    <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="card-icon" style="background: rgba(129, 140, 248, 0.15); color: #818cf8;"><i class="fa-solid fa-gauge-high"></i></div>
                 </div>
                 <div class="card-value">${cur.pressure_mb} <small style="font-size: 1rem; color: var(--text-muted);">hPa</small></div>
                 <div class="card-subtext">
@@ -698,7 +698,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Visibility</span>
-                    <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
+                    <div class="card-icon" style="background: rgba(52, 211, 153, 0.15); color: #34d399;"><i class="fa-solid fa-eye"></i></div>
                 </div>
                 <div class="card-value">${cur.vis_km} <small style="font-size: 1rem; color: var(--text-muted);">km</small></div>
                 <div class="card-subtext">
@@ -710,11 +710,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Sun Cycle</span>
-                    <div class="card-icon"><i class="fa-regular fa-sun"></i></div>
+                    <div class="card-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;"><i class="fa-regular fa-sun"></i></div>
                 </div>
                 <div class="card-value" style="font-size: 1.5rem; display: flex; align-items: center; gap: 14px; margin-top: 4px;">
-                    <div><span style="font-size: 0.8rem; color: var(--amber-400); display: block;"><i class="fa-solid fa-arrow-up"></i> Rise</span>${sunrise}</div>
-                    <div><span style="font-size: 0.8rem; color: #f87171; display: block;"><i class="fa-solid fa-arrow-down"></i> Set</span>${sunset}</div>
+                    <div><span style="font-size: 0.8rem; color: var(--amber-solar); display: block;"><i class="fa-solid fa-arrow-up"></i> Rise</span>${sunrise}</div>
+                    <div><span style="font-size: 0.8rem; color: #fb7185; display: block;"><i class="fa-solid fa-arrow-down"></i> Set</span>${sunset}</div>
                 </div>
                 <div class="card-subtext" style="margin-top: 8px;">
                     <span>Golden hour lighting forecast</span>
