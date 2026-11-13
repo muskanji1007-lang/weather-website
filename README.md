@@ -41,14 +41,15 @@ Whether monitoring real-time conditions, tracking barometric changes, checking U
 
 | Feature | Description |
 | :--- | :--- |
-| 🪟 **3D Glassmorphic UI** | Multi-layered frosted glass panels (`backdrop-filter`), neon cyan accents, and depth shadows. |
+| 🎨 **Ocean & Coral Design** | Curated editorial aesthetic featuring Deep Teal (`#173C38`), Ocean Sage (`#28615B`), Warm Coral (`#E58D78`), Cream (`#F4E9D9`), and Sand (`#D6C5A5`). |
+| 🏙️ **Dynamic City Skyline** | High-definition panoramic city hero banner adapting automatically to the searched location (Delhi, Mumbai, London, Tokyo, NYC, etc.). |
+| 🪟 **3D Glassmorphic UI** | Multi-layered frosted glass panels with organic depth, subtle warm borders, and floating badges. |
 | 🎛️ **Interactive 3D Tilt** | Dynamic mouse-tracking perspective calculations (`rotateX`, `rotateY`) on weather cards. |
 | 📊 **7 Weather Metric Cards** | Dedicated telemetry for Feels Like, Humidity, Wind Status, UV Index, Air Pressure, Visibility, and Sun Cycle. |
 | 📅 **Complete 7-Day Forecast** | Comprehensive weekly meteorological progression with daily min/max ranges and active today indicator. |
 | ⚡ **One-Click Guest Demo** | Instant full-feature explore mode with zero signup friction. |
 | 🌡️ **Unit Switcher (°C / °F)** | Global temperature conversion across hero metrics, cards, and forecast data. |
 | 🏙️ **Quick City Chips** | One-tap access to major global cities (Delhi, Mumbai, London, New York, Tokyo, Paris, Dubai). |
-| 🌗 **Day / Night Atmosphere** | Adaptive ambient backdrops dynamically reacting to location solar cycle (`is_day`). |
 | 🎯 **Luminous Custom Cursor** | Dual glowing particle cursor with magnetic hover expansion on clickable elements. |
 | 🔔 **3D Toast Notifications** | Clean floating status alerts replacing intrusive native browser popups. |
 | 🔐 **Authentication Flow** | Protected dashboard with token authorization, password visibility toggles, and form validation. |

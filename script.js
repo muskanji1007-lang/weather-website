@@ -472,6 +472,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==========================================
+    // CITY SKYLINE PANORAMIC IMAGES
+    // ==========================================
+    const cityImages = {
+        "delhi": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1600&q=80",
+        "new delhi": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1600&q=80",
+        "mumbai": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1600&q=80",
+        "bombay": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1600&q=80",
+        "london": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80",
+        "new york": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1600&q=80",
+        "nyc": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1600&q=80",
+        "tokyo": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1600&q=80",
+        "paris": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80",
+        "dubai": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80",
+        "singapore": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1600&q=80",
+        "sydney": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80",
+        "rome": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1600&q=80",
+        "berlin": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1600&q=80",
+        "toronto": "https://images.unsplash.com/photo-1517090504586-fde19ea6066f?auto=format&fit=crop&w=1600&q=80",
+        "san francisco": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1600&q=80",
+        "los angeles": "https://images.unsplash.com/photo-1580655653885-65763b2597d0?auto=format&fit=crop&w=1600&q=80",
+        "chicago": "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&w=1600&q=80",
+        "barcelona": "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1600&q=80"
+    };
+    const defaultCityImage = "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=80";
+
+    function getCityImage(cityName) {
+        if (!cityName) return defaultCityImage;
+        const clean = cityName.toLowerCase().trim();
+        if (cityImages[clean]) return cityImages[clean];
+        for (const [key, url] of Object.entries(cityImages)) {
+            if (clean.includes(key) || key.includes(clean)) return url;
+        }
+        return defaultCityImage;
+    }
+
+    // ==========================================
     // 8. CURRENT WEATHER API & 3D HERO CARD
     // ==========================================
     async function getCurrentWeather(cityName) {
@@ -549,6 +585,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const feelsDisplay = formatTemp(cur.feelslike_c, cur.feelslike_f);
         const iconSrc = cur.condition.icon.startsWith("//") ? `https:${cur.condition.icon}` : cur.condition.icon;
 
+        // Dynamic City Skyline Panorama Image
+        const cityBannerImg = getCityImage(loc.name);
+        weatherResult.style.backgroundImage = `url("${cityBannerImg}")`;
+
         weatherResult.innerHTML = `
             <div class="hero-content">
                 <div class="hero-info">
@@ -600,8 +640,8 @@ document.addEventListener("DOMContentLoaded", function () {
         else if (cur.uv >= 8) { uvLevel = "Very High"; uvClass = "status-danger"; }
 
         // Visibility Level
-        let visLevel = "Excellent";
-        if (cur.vis_km < 4) visLevel = "Poor / Foggy";
+        let visLevel = "Clear Horizon";
+        if (cur.vis_km < 4) visLevel = "Hazy / Foggy";
         else if (cur.vis_km < 9) visLevel = "Moderate";
 
         // Humidity rating
@@ -630,7 +670,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Feels Like</span>
-                    <div class="card-icon" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;"><i class="fa-solid fa-temperature-half"></i></div>
+                    <div class="card-icon" style="background: rgba(229, 141, 120, 0.15); color: #E58D78;"><i class="fa-solid fa-temperature-half"></i></div>
                 </div>
                 <div class="card-value">${feelsDisplay}</div>
                 <div class="card-subtext">
@@ -642,11 +682,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Humidity</span>
-                    <div class="card-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="card-icon" style="background: rgba(40, 97, 91, 0.12); color: #28615B;"><i class="fa-solid fa-droplet"></i></div>
                 </div>
                 <div class="card-value">${cur.humidity}%</div>
                 <div class="mini-bar">
-                    <div class="mini-bar-fill" style="width: ${Math.min(cur.humidity, 100)}%; background: linear-gradient(90deg, #00f2fe, #3b82f6);"></div>
+                    <div class="mini-bar-fill" style="width: ${Math.min(cur.humidity, 100)}%; background: linear-gradient(90deg, #E58D78, #28615B);"></div>
                 </div>
                 <div class="card-subtext">
                     <span class="status-pill status-normal">${humidityRating}</span>
@@ -657,7 +697,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Wind Velocity</span>
-                    <div class="card-icon" style="background: rgba(96, 165, 250, 0.15); color: #60a5fa;">
+                    <div class="card-icon" style="background: rgba(229, 141, 120, 0.15); color: #E58D78;">
                         <i class="fa-solid fa-location-arrow" style="transform: rotate(${windDeg}deg); transition: transform 0.5s ease;"></i>
                     </div>
                 </div>
@@ -671,11 +711,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">UV Index</span>
-                    <div class="card-icon" style="background: rgba(251, 113, 133, 0.15); color: #fb7185;"><i class="fa-solid fa-sun"></i></div>
+                    <div class="card-icon" style="background: rgba(229, 141, 120, 0.15); color: #E58D78;"><i class="fa-solid fa-sun"></i></div>
                 </div>
                 <div class="card-value">${cur.uv} <small style="font-size: 0.95rem; color: var(--text-muted);">/ 12</small></div>
                 <div class="mini-bar">
-                    <div class="mini-bar-fill" style="width: ${Math.min((cur.uv / 12) * 100, 100)}%; background: ${cur.uv > 6 ? '#fb7185' : 'linear-gradient(90deg, #38bdf8, #818cf8)'};"></div>
+                    <div class="mini-bar-fill" style="width: ${Math.min((cur.uv / 12) * 100, 100)}%; background: ${cur.uv > 6 ? '#d44646' : 'linear-gradient(90deg, #E58D78, #D6C5A5)'};"></div>
                 </div>
                 <div class="card-subtext">
                     <span class="status-pill ${uvClass}">${uvLevel} UV</span>
@@ -686,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Air Pressure</span>
-                    <div class="card-icon" style="background: rgba(129, 140, 248, 0.15); color: #818cf8;"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="card-icon" style="background: rgba(40, 97, 91, 0.12); color: #28615B;"><i class="fa-solid fa-gauge-high"></i></div>
                 </div>
                 <div class="card-value">${cur.pressure_mb} <small style="font-size: 1rem; color: var(--text-muted);">hPa</small></div>
                 <div class="card-subtext">
@@ -698,11 +738,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Visibility</span>
-                    <div class="card-icon" style="background: rgba(52, 211, 153, 0.15); color: #34d399;"><i class="fa-solid fa-eye"></i></div>
+                    <div class="card-icon" style="background: rgba(23, 60, 56, 0.12); color: #173C38;"><i class="fa-solid fa-eye"></i></div>
                 </div>
                 <div class="card-value">${cur.vis_km} <small style="font-size: 1rem; color: var(--text-muted);">km</small></div>
                 <div class="card-subtext">
-                    <span class="status-pill status-normal">${visLevel} Horizon</span>
+                    <span class="status-pill status-normal">${visLevel}</span>
                 </div>
             </div>
 
@@ -710,11 +750,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="highlight-card tilt-card" data-tilt>
                 <div class="card-top">
                     <span class="card-label">Sun Cycle</span>
-                    <div class="card-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;"><i class="fa-regular fa-sun"></i></div>
+                    <div class="card-icon" style="background: rgba(214, 197, 165, 0.35); color: #173C38;"><i class="fa-regular fa-sun"></i></div>
                 </div>
                 <div class="card-value" style="font-size: 1.5rem; display: flex; align-items: center; gap: 14px; margin-top: 4px;">
-                    <div><span style="font-size: 0.8rem; color: var(--amber-solar); display: block;"><i class="fa-solid fa-arrow-up"></i> Rise</span>${sunrise}</div>
-                    <div><span style="font-size: 0.8rem; color: #fb7185; display: block;"><i class="fa-solid fa-arrow-down"></i> Set</span>${sunset}</div>
+                    <div><span style="font-size: 0.8rem; color: #E58D78; display: block;"><i class="fa-solid fa-arrow-up"></i> Rise</span>${sunrise}</div>
+                    <div><span style="font-size: 0.8rem; color: #28615B; display: block;"><i class="fa-solid fa-arrow-down"></i> Set</span>${sunset}</div>
                 </div>
                 <div class="card-subtext" style="margin-top: 8px;">
                     <span>Golden hour lighting forecast</span>
