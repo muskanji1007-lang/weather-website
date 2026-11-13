@@ -3,144 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SKYORA - Next-Gen 3D Weather Forecasting Web App. Real-time atmospheric metrics, 7-day forecast, and interactive visual dashboard.">
+    <title>Skyora - 3D Weather Experience</title>
 
-    <title>Skyora - Weather App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="cursor"></div>
-    
+    <!-- Interactive Glowing Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
     <section id="login-page">
-        <div class="login-card">
+        <div class="auth-wrapper">
+            <div class="login-card tilt-card" data-tilt>
+                <div class="brand-badge">
+                    <i class="fa-solid fa-cloud-bolt brand-icon"></i>
+                    <h1>SKYORA</h1>
+                </div>
+                <p class="tagline">Your Next-Gen Weather Companion</p>
 
-            <h1>SKYORA</h1>
-            <p>Your Weather Companion</p>
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Enter your credentials to access live forecast</p>
+                </div>
 
-            <h2>Welcome Back!</h2>
-            <p>Login to continue</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-email"><i class="fa-regular fa-envelope"></i> Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                id="login-email"
+                                placeholder="name@example.com"
+                                required>
+                        </div>
+                    </div>
 
-            <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-password"><i class="fa-solid fa-lock"></i> Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="login-password"
+                                placeholder="••••••••"
+                                required>
+                            <button type="button" class="toggle-password" data-target="login-password" title="Toggle password visibility">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
 
-                <label for="login-email">Email</label>
-                <input
-                    type="email"
-                    id="login-email"
-                    placeholder="Enter your email" >
-
-                <label for="login-password">Password</label>
-                <input
-                    type="password"
-                    id="login-password"
-                    placeholder="Enter your password">
                     <div class="login-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" id="forgot-password">Forgot Password?</a>
+                    </div>
 
-    <label>
-        <input type="checkbox" id="remember-me">
-        Remember me
-    </label>
-    <a href="#" id="forgot-password">
-        Forgot Password?
-    </a>
-</div>
+                    <button type="submit" class="btn-primary btn-3d">
+                        <span>Sign In</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
 
-                <button type="submit">Login</button>
-                <div class="divider">
-    <span>or</span>
-</div>
-<button type="button" class="google-btn">
-    <span class="google-icon">G</span>
-    Login with Google
-</button>
-            </form> 
+                    <button type="button" id="demo-login-btn" class="btn-demo btn-3d" title="Instant preview without signing up">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Explore as Guest / Demo</span>
+                    </button>
 
-            <p>
-                Don't have an account?
-                <button type="button" id="show-signup">
-                    Sign Up
-                </button>
-            </p>
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <button type="button" class="google-btn btn-3d">
+                        <span class="google-icon">G</span>
+                        <span>Sign in with Google</span>
+                    </button>
+                </form>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <button type="button" id="show-signup">Create account</button>
+                </p>
+            </div>
         </div>
     </section>
 
+    <!-- ==================== SIGNUP PAGE ==================== -->
     <section id="signup-page">
-        <div class="signup-card">
+        <div class="auth-wrapper">
+            <div class="signup-card tilt-card" data-tilt>
+                <div class="brand-badge">
+                    <i class="fa-solid fa-cloud-bolt brand-icon"></i>
+                    <h1>SKYORA</h1>
+                </div>
+                <p class="tagline">Your Next-Gen Weather Companion</p>
 
-            <h1>SKYORA</h1>
-            <p>Your Weather Companion</p>
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Join Skyora and experience 3D weather intelligence</p>
+                </div>
 
-            <h2>Create Account</h2>
-            <p>Join us and start your weather journey</p>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <label for="signup-name"><i class="fa-regular fa-user"></i> Full Name</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                id="signup-name"
+                                placeholder="Muskan Gupta"
+                                required>
+                        </div>
+                    </div>
 
-            <form id="signup-form">
+                    <div class="input-group">
+                        <label for="signup-email"><i class="fa-regular fa-envelope"></i> Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                id="signup-email"
+                                placeholder="name@example.com"
+                                required>
+                        </div>
+                    </div>
 
-                <label for="signup-name">Full Name</label>
-                <input
-                    type="text"
-                    id="signup-name"
-                    placeholder="Enter your name">
+                    <div class="input-group">
+                        <label for="signup-password"><i class="fa-solid fa-lock"></i> Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="signup-password"
+                                placeholder="Min. 6 characters"
+                                required>
+                            <button type="button" class="toggle-password" data-target="signup-password" title="Toggle password visibility">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
 
-                <label for="signup-email">Email</label>
-                <input
-                    type="email"
-                    id="signup-email"
-                    placeholder="Enter your email">
+                    <button type="submit" class="btn-primary btn-3d">
+                        <span>Create Account</span>
+                        <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                </form>
 
-                <label for="signup-password">Password</label>
-                <input
-                    type="password"
-                    id="signup-password"
-                    placeholder="Create a password" >
-
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>
-                Already have an account?
-                <button type="button" id="show-login">
-                    Login
-                </button>
-            </p>
+                <p class="auth-switch">
+                    Already have an account?
+                    <button type="button" id="show-login">Sign In</button>
+                </p>
+            </div>
         </div>
     </section>
 
+    <!-- ==================== DASHBOARD PAGE ==================== -->
     <section id="dashboard-page">
-        <header>
-            <h1>SKYORA</h1>
-
-            <button id="logout-btn">
-                Logout
-            </button>
-        </header>
-        <main>
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="city-input"
-                    placeholder="Search for a city " >
-
-                <button id="search-btn">
-                    Search
-                </button>
-            </div>
-            <div id="weather-result">
-
-                <h2>Search for a city</h2>
-                <p>Enter a city name to see the weather.</p>
-
-            </div>
-            <div id="forecast">
-
-                <h2>7-Day Forecast</h2>
-
-                <div id="forecast-container">
+        <header class="app-header glass-panel">
+            <div class="header-left">
+                <div class="header-brand">
+                    <i class="fa-solid fa-cloud-sun brand-icon"></i>
+                    <h1>SKYORA</h1>
+                    <span class="live-badge"><span class="pulse-dot"></span> LIVE</span>
                 </div>
             </div>
+
+            <div class="header-center">
+                <div class="header-clock">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="live-time">--:--:--</span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="user-pill">
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+                    <span id="user-greeting">Hi, Guest</span>
+                </div>
+
+                <button id="unit-toggle" class="btn-icon btn-3d" title="Switch Celsius / Fahrenheit">
+                    <span id="unit-label">°C</span>
+                </button>
+
+                <button id="logout-btn" class="btn-logout btn-3d">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <!-- Search & Quick Selection -->
+            <section class="search-section">
+                <div class="search-box glass-panel">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input
+                        type="text"
+                        id="city-input"
+                        placeholder="Search city (e.g. Delhi, London, Tokyo, New York)..."
+                        autocomplete="off">
+                    <button type="button" id="clear-search-btn" class="clear-btn" title="Clear input" style="display: none;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button id="search-btn" class="btn-search btn-3d">
+                        <span>Search</span>
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </button>
+                </div>
+
+                <!-- Quick Popular City Chips -->
+                <div class="quick-chips">
+                    <span class="chips-label"><i class="fa-solid fa-fire"></i> Popular:</span>
+                    <button type="button" class="city-chip" data-city="Delhi">Delhi</button>
+                    <button type="button" class="city-chip" data-city="Mumbai">Mumbai</button>
+                    <button type="button" class="city-chip" data-city="London">London</button>
+                    <button type="button" class="city-chip" data-city="New York">New York</button>
+                    <button type="button" class="city-chip" data-city="Tokyo">Tokyo</button>
+                    <button type="button" class="city-chip" data-city="Paris">Paris</button>
+                    <button type="button" class="city-chip" data-city="Dubai">Dubai</button>
+                </div>
+            </section>
+
+            <!-- Current Weather Hero Display -->
+            <section id="weather-result" class="weather-hero glass-panel tilt-card" data-tilt>
+                <div class="empty-state">
+                    <i class="fa-solid fa-cloud-sun-rain empty-icon"></i>
+                    <h2>Explore Global Weather</h2>
+                    <p>Search for any city or choose from popular cities above to discover real-time weather analytics.</p>
+                </div>
+            </section>
+
+            <!-- Weather Details / Highlights: 7 Cards Grid -->
+            <section class="highlights-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-chart-simple"></i> Weather Highlights</h2>
+                    <span class="section-tag">Atmospheric Breakdown</span>
+                </div>
+                <div id="weather-details-grid" class="highlights-grid">
+                    <!-- Dynamic 7 detail cards rendered by JavaScript -->
+                </div>
+            </section>
+
+            <!-- 7-Day Forecast Section -->
+            <section id="forecast" class="forecast-section glass-panel">
+                <div class="section-header">
+                    <h2><i class="fa-regular fa-calendar-days"></i> 7-Day Forecast</h2>
+                    <span class="section-tag">Weekly Outlook</span>
+                </div>
+
+                <div id="forecast-container" class="forecast-grid">
+                    <!-- 7 Forecast cards populated by script.js -->
+                </div>
+            </section>
         </main>
-        <footer>
-    <p>© 2026 SKYORA | Created by Muskan Gupta</p>
-</footer>
+
+        <footer class="app-footer glass-panel">
+            <div class="footer-content">
+                <p>© 2026 <strong>SKYORA</strong> • Weather Intelligence Platform</p>
+                <p class="credit">Crafted with <i class="fa-solid fa-heart heart-beat"></i> by <strong>Muskan Gupta</strong></p>
+            </div>
+        </footer>
     </section>
+
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
